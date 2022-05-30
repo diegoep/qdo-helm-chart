@@ -1,0 +1,5 @@
+.terraform
+terraform.state
+terraform.state.backup
+.terraform.lock.hcl
+qdo-chart/charts/*

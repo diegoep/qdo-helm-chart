@@ -1,0 +1,9 @@
+{{- if .Values.redis -}}
+apiVersion: v1
+data:
+  host: "{{ .Values.redis.host }}"
+  port: "{{ .Values.redis.port }}"
+kind: ConfigMap
+metadata:
+  name: go-redis-configmap
+{{- end -}}

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "go-redis-kubernetes-chart.fullname" . }}
+  labels:
+    {{- include "go-redis-kubernetes-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "go-redis-kubernetes-chart.selectorLabels" . | nindent 4 }}
